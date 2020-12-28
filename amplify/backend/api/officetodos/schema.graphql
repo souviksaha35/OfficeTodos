@@ -1,0 +1,36 @@
+type User @model {
+  id: ID!
+  name: String!
+  imageUri: String
+  tasks: [Todo] @connection(keyName: "byUser", fields: ["id"])
+  teamUser: [TeamUser] @connection(keyName: "byteamUser", fields: ["id"])
+}
+
+type TeamUser @model
+@key(name: "byteamUser", fields: ["userID", "teamID"])
+@key(name: "byTeam", fields: ["teamID", "userID"])
+ {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  teamID: ID!
+  team: Team @connection(fields: ["teamID"])
+}
+
+type Team @model {
+  id: ID!
+  name: String!
+  description: String!
+  teamUser: [TeamUser]  @connection(keyName: "byTeam", fields: ["id"])
+}
+
+type Todo @model
+@key(name: "byUser", fields: ["userID"]) {
+  id: ID!
+  name: String!
+  userID: ID!
+  user: User! @connection(fields: ["userID"])
+  image: String
+  description: String!
+  completed: Boolean!
+}

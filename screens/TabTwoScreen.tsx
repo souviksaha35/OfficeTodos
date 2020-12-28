@@ -1,15 +1,41 @@
+import { AntDesign } from '@expo/vector-icons';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Button, Divider } from 'react-native-elements';
+import { useNavigation} from '@react-navigation/native';
 import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
 
+const {height, width } = Dimensions.get('window');
 export default function TabTwoScreen() {
+
+  const navigation  = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate('createTaskScreen');
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.js" />
+      <View style={styles.upperContainer}>
+        <Text style={{ fontWeight: 'bold', fontSize: 20,}}>
+          Your Tasks
+        </Text>
+      </View>
+
+
+      <Divider style={{ backgroundColor: 'grey', height: 1, }} />
+
+      <View style={styles.middleContainer}>
+
+      </View>
+      <Button
+        onPress={onPress}
+        icon={
+        <AntDesign name="plus" size={28} color="white"/> } buttonStyle={{
+          borderRadius: 50,
+          height: 70,
+          width: 70,
+          margin: 20,
+        }}/>
     </View>
   );
 }
@@ -18,11 +44,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    height: height,
+    width: width,
+    backgroundColor: 'white'
+  },
+
+  upperContainer: {
+    width: width,
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+
+  middleContainer: {
+    width: width,
+    height: 450,
   },
   separator: {
     marginVertical: 30,

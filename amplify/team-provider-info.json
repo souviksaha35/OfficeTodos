@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-officetodos-dev-134122-authRole",
+      "UnauthRoleArn": "arn:aws:iam::719486586568:role/amplify-officetodos-dev-134122-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::719486586568:role/amplify-officetodos-dev-134122-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-officetodos-dev-134122-deployment",
+      "UnauthRoleName": "amplify-officetodos-dev-134122-unauthRole",
+      "StackName": "amplify-officetodos-dev-134122",
+      "StackId": "arn:aws:cloudformation:ap-south-1:719486586568:stack/amplify-officetodos-dev-134122/cf8c0570-3863-11eb-af98-0a445c80cb04",
+      "AmplifyAppId": "d2zlt4uaqrlcna"
+    },
+    "categories": {
+      "auth": {
+        "officetodosf4b779f2": {}
+      }
+    }
+  }
+}
